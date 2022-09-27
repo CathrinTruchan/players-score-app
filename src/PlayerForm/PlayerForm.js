@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export default function PlayerForm({ createPlayer }) {
+export default function PlayerForm({ onCreatePlayer }) {
   function onSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     const { newPlayer } = data;
-    createPlayer(newPlayer);
+    onCreatePlayer(newPlayer);
     event.target.reset();
   }
 

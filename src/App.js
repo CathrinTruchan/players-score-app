@@ -33,6 +33,15 @@ function App() {
     ]);
   }
 
+  function increaseScore(id) {
+    setPlayers((previousPlayers) =>
+      previousPlayers.map((player) =>
+        player.id === id ? { ...player, score: player.score + 1 } : player
+      )
+    );
+    //console.log("i have been increased!" + id);
+  }
+
   return (
     <div className="App">
       <Header>Players-Score-App</Header>
@@ -43,11 +52,12 @@ function App() {
             score={player.score}
             key={player.id}
             id={player.id}
+            onIncrease={increaseScore}
           />
         ))}
         <Button text="Reset score" />
         <Button text="Reset all" />
-        <PlayerForm createPlayer={createPlayer} />
+        <PlayerForm onCreatePlayer={createPlayer} />
       </main>
       <footer></footer>
     </div>
