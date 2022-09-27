@@ -39,7 +39,6 @@ function App() {
         player.id === id ? { ...player, score: player.score + 1 } : player
       )
     );
-    //console.log("i have been increased!" + id);
   }
 
   function decreaseScore(id) {
@@ -48,7 +47,20 @@ function App() {
         player.id === id ? { ...player, score: player.score - 1 } : player
       )
     );
-    //console.log("i have been decreased!" + id);
+  }
+
+  //function resetAllPlayers() {
+
+  function resetScores() {
+    setPlayers(
+      players.map((player) => {
+        return { ...player, score: 0 };
+      })
+    );
+  }
+
+  function resetPlayers() {
+    setPlayers([]);
   }
 
   return (
@@ -64,8 +76,8 @@ function App() {
             onDecrease={() => decreaseScore(player.id)}
           />
         ))}
-        <Button text="Reset score" />
-        <Button text="Reset all" />
+        <Button onResetScores={resetScores} type="Reset score" />
+        <Button type="Reset all Players" onResetPlayers={resetPlayers} />
         <PlayerForm onCreatePlayer={createPlayer} />
       </main>
       <footer></footer>
