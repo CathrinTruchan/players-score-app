@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export default function Player({ name, score, onIncrease, id }) {
+export default function Player({ name, score, onIncrease, onDecrease }) {
   return (
     <Section>
       <div>{name}</div>
-      <button>Minus</button>
+      <button onClick={onDecrease}>Minus</button>
       <div>{score}</div>
-      <button onClick={() => onIncrease(id)}>Plus</button>
+      <button onClick={onIncrease}>Plus</button>
     </Section>
   );
 }

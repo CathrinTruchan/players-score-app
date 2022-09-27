@@ -42,6 +42,15 @@ function App() {
     //console.log("i have been increased!" + id);
   }
 
+  function decreaseScore(id) {
+    setPlayers((previousPlayers) =>
+      previousPlayers.map((player) =>
+        player.id === id ? { ...player, score: player.score - 1 } : player
+      )
+    );
+    //console.log("i have been decreased!" + id);
+  }
+
   return (
     <div className="App">
       <Header>Players-Score-App</Header>
@@ -51,8 +60,8 @@ function App() {
             name={player.name}
             score={player.score}
             key={player.id}
-            id={player.id}
-            onIncrease={increaseScore}
+            onIncrease={() => increaseScore(player.id)}
+            onDecrease={() => decreaseScore(player.id)}
           />
         ))}
         <Button text="Reset score" />
