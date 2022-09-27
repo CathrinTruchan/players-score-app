@@ -1,6 +1,7 @@
 import "./App.css";
 import Player from "./Player/Player";
 import styled from "styled-components";
+import Button from "./Button/Button";
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
       <Header>Players-Score-App</Header>
       <main>
         <Player name="Bernd" score="20" />
+        <Button text="Reset score" />
+        <Button text="Reset all" />
       </main>
       <footer></footer>
     </div>
