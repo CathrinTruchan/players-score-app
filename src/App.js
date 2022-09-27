@@ -3,24 +3,24 @@ import Player from "./Player/Player";
 import styled from "styled-components";
 import Button from "./Button/Button";
 import PlayerForm from "./PlayerForm/PlayerForm";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { nanoid } from "nanoid";
 
-const initialPlayers = [
-  {
-    id: nanoid(),
-    name: "Bernd",
-    score: 20,
-  },
-  {
-    id: nanoid(),
-    name: "Karl",
-    score: 50,
-  },
-];
+// const initialPlayers = [
+//   {
+//     id: nanoid(),
+//     name: "Bernd",
+//     score: 20,
+//   },
+//   {
+//     id: nanoid(),
+//     name: "Karl",
+//     score: 50,
+//   },
+// ];
 
 function App() {
-  const [players, setPlayers] = useState(initialPlayers);
+  const [players, setPlayers] = useState([]);
 
   function createPlayer(name) {
     setPlayers([
