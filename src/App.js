@@ -44,7 +44,9 @@ function App() {
   function decreaseScore(id) {
     setPlayers((previousPlayers) =>
       previousPlayers.map((player) =>
-        player.id === id ? { ...player, score: player.score - 1 } : player
+        player.id === id && player.score > 0
+          ? { ...player, score: player.score - 1 }
+          : player
       )
     );
   }
